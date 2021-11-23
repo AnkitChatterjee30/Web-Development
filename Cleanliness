@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+    <head>
+    <title>Clean Me</title>
+    <h1><b>Clean Me</b></h1>
+        <style>
+            body{
+                background-image: url("https://images.pexels.com/photos/462118/pexels-photo-462118.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=https://images.pexels.com/photos/2549944/pexels-photo-2549944.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500");
+                background-repeat: no-repeat;
+                background-attachment: fixed;
+                background-size:cover;
+            }
+            ul{
+                
+                cursor:pointer;
+                height:50px;
+                width:150px;
+                text-align: center;
+                flex-direction:row;
+                font-size: 30px;
+                list-style-type:none ;
+                margin-left: 500px;
+                margin-top: 40px;
+                display:flex;
+                flex-direction: row;
+                column-gap: 80px;
+
+
+                
+            }
+            li{
+                border: 2px;
+                border-radius: 20% 20% 20% 20%;
+                border-style: solid;
+                padding:5px 5px 5px 5px;
+            }
+            li:hover{
+                background-color: black;
+                color:silver;
+            }
+            h1{
+                font-style:oblique;
+                font-size: 70px;
+                font-weight: bolder;
+                position: relative;
+            }
+        </style>
+    </head>
+    <body>
+        <ul class="List-ankit">
+            <li><a href="http://bcrec.ac.in/index.htm">
+            Home 🏠</a>
+            </li>
+            <li><a href="http://bcrec.ac.in/contact.htm">
+                Contact ☎️</a>
+            </li> 
+            <li><a href="http://bcrec.ac.in/#">
+                About 🧾</a>
+            </li>
+            <li><a href="http://127.0.0.1:5500/Nothing.html"> Sign_in ✍🏻</a></li>
+        </ul>
+       
+    </body>
+</html>
