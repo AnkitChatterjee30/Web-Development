@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Ankit Chatterjee</title>
+    <style>
+        body{
+            background-color: aquamarine;
+        }
+        .ponk{
+                background-color: #500a0ac5;
+                height:70px;
+                width:70px;
+                margin-top: 100px;
+                margin-left: 100px;
+                margin-top: 20px;
+                border-radius: 0px 70px 70px 70px;
+        }
+
+        .pank{
+                background-color:orangered;
+                height:70px;
+                width:70px;
+                margin-top: 100px;
+                margin-left: 100px;
+                margin-top: 20px;
+                border-radius: 70px 70px 0px 70px;
+        }
+        .pilk{
+                background-color:yellow;
+                height:70px;
+                width:70px;
+                margin-top: 100px;
+                margin-left: 70px;
+                margin-top: 20px;
+                border-radius: 70px 70px 70px 0px;
+        }
+        
+        .pawk{
+                background-color:orangered;
+                height:70px;
+                width:70px;
+                margin-top: 100px;
+                margin-left: 70px;
+                margin-top: 20px;
+                border-radius: 70px 0px 0px 0px;
+        }
+        .pask{
+                background-color:yellow;
+                height:70px;
+                width:70px;
+                margin-top: 100px;
+                margin-left: 70px;
+                margin-top: 20px;
+                border-radius: 0px 70px 0px 0px;
+        }
+        .bank{
+                background-color: green;
+                height:70px;
+                width:70px;  
+                margin-left: 100px;
+                margin-top: 0px;          
+                border-radius: 70px 70px 70px 70px;
+        }
+        .chalk{
+                background-color: orange;
+                height:70px;
+                width:70px; 
+                margin-left: 100px;
+                margin-top: 0px;           
+                border-radius: 70px 0px 70px 70px;
+        } 
+        .talk{
+                background-color: blue;
+                height:70px;
+                width:70px;
+                margin-left: 70px;
+                margin-top: 0px;
+                border-radius: 0px 70px 70px 70px;
+        }
+       
+        .banik{
+                background-color:orange;
+                height:70px;
+                width:70px;
+                margin-left: 70px;
+                margin-top: 0px;
+                border-radius: 0px 0px 0px 70px;
+        }
+        .panik{
+                background-color:blue;
+                height:70px;
+                width: 70px;
+                margin-left: 70px;
+                margin-top: 0px;
+                border-radius: 0px 0px 70px 0px;
+        }
+        
+        
+    </style>
+    </head>
+    <body>
+        <div class="ponk">
+        <div class="pank">
+        <div class="pilk">
+        <div class="pawk">
+        <div class="pask">
+        </div>
+        </div>
+        </div>
+        </div>
+        </div>
+        <div class="bank">
+        <div class="chalk">
+        <div class="talk">
+        <div class="banik">
+        <div class="panik">
+        </div>
+       </div>
+    </div>
+    </div>
+    </body>
+</html>
