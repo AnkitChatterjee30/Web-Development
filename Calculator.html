@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+	<meta name="viewport" content=
+		"width=device-width, initial-scale=1.0">
+    <meta class="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculator</title>
+</head>
+<style>
+    body {
+        background-image: linear-gradient(to left, rgb(82, 2, 82), rgb(5, 5, 209));
+
+    }
+
+    .calci {
+        width: 300px;
+        margin-left: 400px;
+        margin-top: 100px;
+        padding-top: 50px;
+        padding-bottom: 50px;
+        position: absolute;
+        text-align: center;
+        border-radius: 5%;
+
+    }
+
+    #display {
+        border: none;
+        border-radius: 30px;
+        width: 245px;
+        font-size: 20px;
+        font-family: sans-serif;
+        font-weight: 300;
+        height: 60px;
+        margin: auto;
+        border: 1px solid black;
+        color: black;
+    }
+
+    .buttonDesign {
+        width: 55px;
+        height: 55px;
+        padding-top: -1;
+        border: none;
+        font-family: sans-serif;
+        font-size: 20px;
+        font-weight: 300;
+        border-radius: 30px;
+        margin: 1.5;
+    }
+
+    .operatorDesign {
+        width: 55px;
+        height: 55px;
+        padding-top: -1;
+        border: none;
+        font-family: sans-serif;
+        font-size: 20px;
+        font-weight: 300;
+        border-radius: 30px;
+        margin: 1.5;
+        transition: 0.25px;
+        cursor: pointer;
+    }
+
+    .operatorDesign:hover {
+        background-color: rgb(84, 181, 219);
+    }
+
+    #zero {
+        width: 115px;
+        height: 55px;
+        padding-top: -1;
+        border: none;
+        font-family: sans-serif;
+        font-size: 20px;
+        font-weight: 300;
+        border-radius: 30px;
+        margin: 1.5;
+        transition: 0.25px;
+        cursor: pointer;
+    }
+
+    .buttonDesign:hover {
+        background-color: rgb(245, 100, 100);
+    }
+
+    #zero:hover {
+        background-color: rgb(88, 230, 88);
+    }
+</style>
+
+<body>
+    <form name="form1" class="calci" action="Calculator.html" method="post">
+        <div class="words" contenteditable>
+        <input type="text" name="answer" id="display" >
+        </div>
+        <br>
+        <br>
+
+        <input type="button" class="buttonDesign" value="C" onclick="form1.answer.value=''">
+        <input type="button" class="buttonDesign" value="<"
+            onclick="form1.answer.value=form1.answer.value.substring(0,form1.answer.value.length*1-1)">
+        <input type="button" class="buttonDesign" value="00" onclick="form1.answer.value+='00'">
+        <input type="button" class="operatorDesign" value="/" onclick="form1.answer.value+='/'">
+        <br>
+        <br>
+
+        <input type="button" class="buttonDesign" value="7" onclick="form1.answer.value+='7'">
+        <input type="button" class="buttonDesign" value="8" onclick="form1.answer.value+='8'">
+        <input type="button" class="buttonDesign" value="9" onclick="form1.answer.value+='9'">
+        <input type="button" class="operatorDesign" value="*" onclick="form1.answer.value+='*'">
+        <br>
+        <br>
+
+        <input type="button" class="buttonDesign" value="4" onclick="form1.answer.value+='4'">
+        <input type="button" class="buttonDesign" value="5" onclick="form1.answer.value+='5'">
+        <input type="button" class="buttonDesign" value="6" onclick="form1.answer.value+='6'">
+        <input type="button" class="operatorDesign" value="-" onclick="form1.answer.value+='-'">
+        <br>
+        <br>
+
+        <input type="button" class="buttonDesign" value="1" onclick="form1.answer.value+='1'">
+        <input type="button" class="buttonDesign" value="2" onclick="form1.answer.value+='2'">
+        <input type="button" class="buttonDesign" value="3" onclick="form1.answer.value+='3'">
+        <input type="button" class="operatorDesign" value="+" onclick="form1.answer.value+='+'">
+        <br>
+        <br>
+
+        <input type="button" id="zero" value="0" onclick="form1.answer.value+='0'">
+        <input type="button" class="buttonDesign" value="." onclick="form1.answer.value+='.'">
+        <input type="button" class="operatorDesign" value="=" onclick="form1.answer.value=eval(form1.answer.value)">
+        <br>
+
+    </form>
+</body>
+
+</html>
