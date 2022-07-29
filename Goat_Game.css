@@ -1,0 +1,88 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+body{
+    background-color: red;
+    overflow: hidden;
+
+}
+
+.gameContainer{
+    background-image: url("https://wallpapercave.com/wp/wp3492453.png");
+    background-repeat: no-repeat;
+    background-size: 100vw 100vh;
+    width: 100%;
+    height: 100vh;
+}
+.goat{
+    background-image: url("Goat.webp");
+    background-repeat: no-repeat;
+    background-size: cover;
+    width: 190px;
+    height: 190px;
+    position: absolute;
+    bottom: 5px;
+    left: 52px;
+}
+.obstacle{
+    background-image: url("Octopus.png");
+    background-size: cover;
+    width: 200px;
+    height: 193px;
+    position: absolute;
+    bottom: -15px;
+    left: 44vw;
+}
+.gameOver{
+    font-weight:500 ;
+    position: relative;
+    top: 63px;
+    font-size: 63px;
+    text-align: center;
+    font-family: 'Times New Roman', Times, serif;
+    
+}
+#scoreCont{
+    position: absolute;
+    right: 45px;
+    top: 150px;
+    border: 2px solid black ;
+    padding: 10px;
+    font-family: sans-serif;
+    width: 182px;
+    font-size: 25px;
+    background-color: yellow;
+    font-weight: bolder;
+}
+.animateGoat{
+    animation: goat 0.7s linear;
+}
+@keyframes goat{
+    0%{
+        bottom: 5px;
+
+    }
+    50%{
+        bottom: 444px;
+    }
+    100%{
+        bottom: 5px;
+    }
+}
+.obstacleAni{
+    animation: obstacleAni 5s linear infinite;
+}
+@keyframes obstacleAni{
+    0%{
+       left: 100vw; 
+    }
+
+    50%{
+        
+    }
+    
+    100%{
+       left: -10vw; 
+    }
+}

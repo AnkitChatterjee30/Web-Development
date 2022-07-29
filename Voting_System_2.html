@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Voting System 2.0</title>
+</head>
+<style>
+.Namgo {
+        position: absolute;
+        margin-top: 150px;
+        margin-left: 300px;
+        font-size: 25px;
+        font-family: Verdana, Geneva, Tahoma, sans-serif;
+    }
+
+    .container {
+        border-radius: 100px;
+        background-color: red;
+
+    }
+
+    .Header {
+        position: absolute;
+        margin-top: 50px;
+        margin-left: 300px;
+        font-size: 50px;
+        font-weight: 800;
+        font-family: 'Times New Roman', Times, serif
+    }
+
+    #updateDetails {
+        position: absolute;
+        margin-left: 300px;
+        margin-top: 430px;
+        width: 200px;
+        font-size: 25px;
+        height: 60px;
+        background-color: black;
+        color: azure;
+    }
+
+    #updateDetails:hover {
+        opacity: 0.5;
+    }
+
+    #favDialog {
+        border-radius: 15%;
+        width: 500px;
+        height: 200px;
+        font-size: 35px;
+    }
+
+    #favDialog button {
+        width: 100px;
+        height: 50px;
+        border-radius: 10%;
+        background-color: darkred;
+        color: azure;
+        font-size: 20px;
+    }
+
+    #favDialog select {
+        font-size: 20px;
+    }
+
+    #favDialog label {
+        width: 200px;
+        height: 100px;
+    }
+
+    #favDialog a {
+        color: azure;
+    }
+
+    #favDialog a:visited {
+        color: azure;
+    }
+</style>
+<body>
+    <h1 class="Header"><u>Indian Voting System</u></h1>
+    <form action="Voting_System.html" method="post" class="Namgo">
+        <label for="fname"> Name 👤</label>
+        <input type="text" id="fname" name="firstname" placeholder="Your name.."
+            style="width: 400px; height: 40px; border-radius: 5%; font-size: 16px;" required>
+        <br>
+        <br>
+        <br>
+        <label for="dob">D.O.B. </label>
+        <input type="date" id="dob" name="dob" placeholder="Your Date of Birth..."
+            style="width: 400px; height: 40px; border-radius: 5%; font-size: 16px;" required>
+        <br>
+        <br>
+        <br>
+        <label for="epic">EPIC no.</label>
+        <input type="number" id="epic" name="epic" placeholder="Your EPIC no...."
+            style="width: 400px; height: 40px; border-radius: 5%; font-size: 16px;" required>
+    </form>
+    <dialog id="favDialog">
+        <form method="dialog">
+            <p><label>Chosen Candidate:
+                    <select>
+                        <option value="default">Choose...</option>
+                        <option>Rahul Gandhi</option>
+                        <br>
+                        <option>Narendra Modi(BJP)</option>
+                        <option>Arvind Kejriwal(AAP)</option>
+                        <option>Mamata Banerjee(TMC)</option>
+                        <option>NOTA</option>
+                    </select>
+                </label></p>
+            <div>
+                <button value="cancel">Cancel</button>
+                <button id="confirmBtn" value="default"><a href="Thanks.html">Confirm</a></button>
+            </div>
+        </form>
+    </dialog>
+    <p>
+        <button id="updateDetails">Vote</button>
+    </p>
+    <output></output>
+    <script>
+        const updateButton = document.getElementById('updateDetails');
+        const favDialog = document.getElementById('favDialog');
+        const outputBox = document.querySelector('output');
+        const selectEl = favDialog.querySelector('select');
+        const confirmBtn = favDialog.querySelector('#confirmBtn');
+        let music = new Audio("Tada-sound.mp3");
+
+        if (typeof favDialog.showModal !== 'function') {
+            favDialog.hidden = true;
+
+        }
+        updateButton.addEventListener('click', function onOpen() {
+            if (typeof favDialog.showModal === "function") {
+                favDialog.showModal();
+            } else {
+                outputBox.value = "Sorry, the <dialog> API is not supported by this browser.";
+            }
+        });
+        selectEl.addEventListener('change', function onSelect(e) {
+            confirmBtn.value = selectEl.value;
+            music.play();
+        });
+        favDialog.addEventListener('close', function onClose() {
+            outputBox.value = favDialog.returnValue + " button clicked - " + (new Date()).toString();
+        });
+    </script>
+
+</body>
+</html>
