@@ -1,0 +1,456 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- Material Icons -->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
+    <!-- CSS File -->
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap');
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Roboto', sans-serif;
+        }
+
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 60px;
+            padding: 15px;
+        }
+
+        main {
+            height: calc(100vh - 70px);
+            display: flex;
+            background-color: #f9f9f9;
+        }
+
+        .side-bar {
+            height: 100%;
+            width: 17%;
+            margin-left: -1800px;
+            background-color: white;
+            overflow-y: hidden;
+        }
+
+        @media (max-width: 768px) {
+            .side-bar {
+                display: none;
+            }
+        }
+
+        .left {
+            display: flex;
+            align-items: center;
+        }
+
+        .left #menu {
+            padding: 0 7px;
+            cursor: pointer;
+        }
+
+        .search {
+            display: flex;
+        }
+
+        .search form {
+            display: flex;
+            border: 1px solid #ddd;
+            height: 45px;
+        }
+
+        .search input {
+            width: 600px;
+            padding: 10px;
+            border: 0;
+            height: 100%;
+            border-radius: 2px 0 0 2px
+        }
+
+        input:focus {
+            outline: none;
+            border: 1px solid #ddd;
+        }
+
+        .search button {
+            height: 100%;
+            width: 60px;
+            border: none;
+        }
+
+        .mic {
+            margin-top: 10px;
+        }
+
+        .material-icons {
+            color: rgb(100, 100, 100);
+            padding: 0 7px;
+            cursor: pointer;
+        }
+
+        .nav {
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            margin-bottom: 15px;
+            margin-top: 15px;
+        }
+
+        .nav-link {
+            display: flex;
+            align-items: center;
+            padding: 12px 25px;
+        }
+
+        .nav-link span {
+            margin-left: 15px;
+        }
+
+        .nav-link:hover {
+            background: #e5e5e5;
+            cursor: pointer;
+        }
+
+        .active {
+            background: #e5e5e5;
+        }
+
+        hr {
+            height: 1px;
+            background-color: #e5e5e5;
+            border: none;
+        }
+
+        .content {
+            background-color: #f9f9f9;
+            width: 100%;
+            height: 100%;
+            padding: 15px 15px;
+            border-top: 1px solid #ddd;
+            overflow-y: scroll;
+        }
+        .card:hover{
+            opacity: 0.6;
+
+        }
+        .card1:hover{
+            opacity: 0.6;
+
+        }
+        .card2:hover{
+            opacity: 0.6;
+
+        }
+        .card3:hover{
+            opacity: 0.6;
+
+        }
+        .card4:hover{
+            opacity: 0.6;
+
+        }
+        .card5:hover{
+            opacity: 0.6;
+
+        }
+        .card6:hover{
+            opacity: 0.6;
+
+        }
+        .card7:hover{
+            opacity: 0.6;
+
+        }
+        .card8:hover{
+            opacity: 0.6;
+
+        }
+        .card{
+            margin-left: 60px;
+            margin-top: 30px;
+            display:inline-table;
+        }
+        .card1{
+            margin-left: 220px;
+            margin-top: 320px;
+            display:inline-table;
+            position:absolute;
+        }
+        .card2{
+            margin-left: 550px;
+            margin-top: 320px;
+            display:inline-table;
+            position:absolute;
+        }
+        .card3{
+            margin-left: 880px;
+            margin-top: 320px;
+            display:inline-table;
+            position:absolute;
+        }
+        .card4{
+            margin-left: 1210px;
+            margin-top: 320px;
+            display:inline-table;
+            position:absolute;
+        }
+        .card5{
+            margin-left: 220px;
+            margin-top: 600px;
+            display:inline-table;
+            position:absolute;
+        }
+        .card6{
+            margin-left: 550px;
+            margin-top: 600px;
+            display:inline-table;
+            position:absolute;
+        }
+        .card7{
+            margin-left: 880px;
+            margin-top: 600px;
+            display:inline-table;
+            position:absolute;
+        }
+        .card8{
+            margin-left: 1210px;
+            margin-top: 600px;
+            display:inline-table;
+            position:absolute;
+        }
+        @media (max-width: 768px) {
+            .side-bar {
+                display: none;
+            }
+
+            .search {
+                display: none;
+            }
+        }
+
+        @media (max-width: 900px) {
+            .search input {
+                width: 25rem;
+            }
+        }
+    </style>
+    <link rel="stylesheet" href="styles/index.css" />
+    <title>Youtube Clone </title>
+</head>
+
+<body>
+    <header class="header">
+        <div class="logo left">
+            <i id="menu" class="material-icons">menu</i>
+            <img src="https://www.freecodecamp.org/news/content/images/2022/01/yt-logo.png">
+        </div>
+
+        <div class="search center">
+            <form action="">
+                <input type="text" placeholder="Search" />
+                <button><i class="material-icons">search</i></button>
+            </form>
+            <i class="material-icons mic">mic</i>
+        </div>
+
+        <div class="icons right">
+            <i class="material-icons">videocam</i>
+            <i class="material-icons">apps</i>
+            <i class="material-icons">notifications</i>
+            <i class="material-icons display-this">account_circle</i>
+        </div>
+    </header>
+
+    <main>
+
+        <!-- <div class="nav">
+     hr -->
+        <div class="side-bar">.</div>
+        <div class="content">.</div>
+        <div class=”side-bar”>
+            <div class="nav">
+                <a class="nav-link active">
+                    <i class="material-icons">home</i>
+                    <span>Home</span>
+                </a>
+                <a class="nav-link">
+                    <i class="material-icons">local_fire_department</i>
+                    <span>Trending</span>
+                </a>
+                <a class="nav-link">
+                    <i class="material-icons">subscriptions</i>
+                    <span>Subscriptions</span>
+                </a>
+            </div>
+            <hr>
+            <a class="nav-link">
+                <i class="material-icons">library_add_check</i>
+                <span>Library</span>
+            </a>
+            <a class="nav-link">
+                <i class="material-icons">history</i>
+                <span>History</span>
+            </a>
+            <a class="nav-link">
+                <i class="material-icons">play_arrow</i>
+                <span>Your Videos</span>
+            </a>
+            <a class="nav-link">
+                <i class="material-icons">watch_later</i>
+                <span>Watch Later</span>
+            </a>
+            <a class="nav-link">
+                <i class="material-icons">thumb_up</i>
+                <span>Liked Videos</span>
+            </a>
+            <!-- </div> -->
+        </div>
+        <div class="card" style="width: 17rem;">
+            <img src="https://www.rupankar.com/ban/ban_5.jpg" class="card-img-top" alt="..." style="width: 270px;">
+            <div class="card-body">
+              <h5 class="card-title">Mix – Priyotoma - Rupankar Bagchi Lyrics (English) || প্রিয়তমা - রূপঙ্কর বাগচী</h5>
+              <p class="card-text">Anupam Roy, Anjan Dutt, Rupankar Bagchi and more</p>
+            </div>
+          </div>
+          <div class="card" style="width: 17rem;">
+            <img src="https://assets.vogue.com/photos/589145c9f88f7c2037364e11/master/w_1600%2Cc_limit/00-barack-obama-orator.jpg" class="card-img-top" alt="..." style="width: 270px;">
+            <div class="card-body">
+              <h5 class="card-title">
+                President Obama Addresses the People of India</h5>
+              <p class="card-text">The Obama White House
+                <br>1.5M views
+                <br>
+                7 years ago</p>
+            </div>
+          </div>
+          <div class="card" style="width: 17rem;">
+            <img src="https://i.ytimg.com/vi/KSX4cwWRzis/maxresdefault.jpg" class="card-img-top" alt="..." style="width: 270px;">
+            <div class="card-body">
+              <h5 class="card-title">Morning Tea | Funny Episodes | Mr Bean Cartoon World</h5>
+              <p class="card-text">Mr Bean Cartoon World
+                  <br>40M views
+                  3 years ago
+            </p>
+            </div>
+          </div>
+          <div class="card" style="width: 17rem;">
+            <img src="https://i.ytimg.com/vi/Ps-J0qGqg6Y/maxresdefault.jpg" class="card-img-top" alt="..." style="width: 270px;">
+            <div class="card-body">
+              <h5 class="card-title">
+                LYRICAL: Chiggy Wiggy | Blue | Kylie Minogue, Akshay Kumar ...</h5>
+              <p class="card-text">T-Series <br>
+                9.6M views
+                1 year ago</p>
+            </div>
+          </div>
+        <br>
+        <br>
+        <br>
+        <div class="card1" style="width: 17rem;">
+            <img src="https://resize.indiatvnews.com/en/resize/oldbucket/715_-/entertainmentbollywood/IndiaTvcc026e_hamari-adhuri-kahani.jpg" class="card-img-top" alt="..." style="width: 270px;">
+            <div class="card-body">
+              <h5 class="card-title">Fox Star Quickies - Hamari Adhuri Kahani - Kya Hai Mere Naam Ka
+               </h5>
+              <p class="card-text"> FoxStarHindi
+                4.5M views
+                <br>
+                6 years ago</p>
+            </div>
+          </div>
+          <div class="card2" style="width: 17rem;">
+            <img src="https://www.bangboxonline.com/wp-content/uploads/2021/10/1633994098_maxresdefault-768x432.jpg" class="card-img-top" alt="..." style="width: 270px;">
+            <div class="card-body">
+              <h5 class="card-title">Eat Out To Help Out with Mr Bean | Full Episodes | Classic Mr Bean
+                </h5>
+              <p class="card-text">Classic Mr Bean
+                  <br>
+                4.9M views
+                1 year ago</p>
+            </div>
+          </div>
+        </div>
+        <div class="card3" style="width: 17rem;">
+          <img src="https://i.ytimg.com/vi/MQSb1J9sodk/maxresdefault.jpg" class="card-img-top" alt="..." style="width: 270px;">
+          <div class="card-body">
+            <h5 class="card-title">
+                Highlights | West Indies v England | Late Hitting Sets Up Thrilling Finish! | 2nd Betway T20I
+               </h5>
+            <p class="card-text"> Windies Cricket
+                <br>
+                3.6M views
+                5 days ago</p>
+          </div>
+        </div>
+        <div class="card4" style="width: 17rem;">
+            <img src="https://i.ytimg.com/vi/y3VzeVtMZyE/maxresdefault.jpg" class="card-img-top" alt="..." style="width: 270px;">
+            <div class="card-body">
+              <h5 class="card-title">
+                All of Us Are Dead | Official Trailer | Netflix
+               </h5>
+              <p class="card-text"> Netflix
+                  <br>
+                12M views
+                2 weeks ago</p>
+            </div>
+          </div>
+          <div class="card5" style="width: 17rem;">
+            <img src="https://i.ytimg.com/vi/BstW5GDKVMU/maxresdefault.jpg" class="card-img-top" alt="..." style="width: 270px;">
+            <div class="card-body">
+              <h5 class="card-title">
+                हिंदी Oggy and the Cockroaches 🔧 KEYS & IDEAS 🔧 Hindi Cartoons for Kids
+               </h5>
+              <p class="card-text"> Oggy Hindi - हिन्दी
+                  <br>
+                20M views
+                5 months ago</p>
+            </div>
+          </div>
+          <div class="card6" style="width: 17rem;">
+            <img src="https://i.ytimg.com/vi/jKWG4BrIiOE/hqdefault.jpg" class="card-img-top" alt="..." style="width: 270px;">
+            <div class="card-body">
+              <h5 class="card-title">Adorable Babies's Reaction Daddy Comes Home Videos Compilation [ NEW HD]
+                </h5>
+              <p class="card-text">Laugh TV <br>
+                47M views
+                5 years ago</p>
+            </div>
+          </div>
+          <div class="card7" style="width: 17rem;">
+            <img src="https://i.ytimg.com/vi/QllguanpKic/maxresdefault.jpg" class="card-img-top" alt="..." style="width: 270px;">
+            <div class="card-body">
+              <h5 class="card-title">HEART ATTACK (ACS & MI)
+               </h5>
+              <p class="card-text"> 7activestudio<br>
+                21M views
+                5 years ago</p>
+            </div>
+          </div>
+          <div class="card8" style="width: 17rem;">
+            <img src="https://i.ytimg.com/vi/OM--rXPXaJk/maxresdefault.jpg" class="card-img-top" alt="..." style="width: 270px;">
+            <div class="card-body">
+              <h5 class="card-title">
+                #22 Brainstorming on PERSONALITY with Sandeep Maheshwari
+               </h5>
+              <p class="card-text"> Sandeep Maheshwari <br>
+                328K views
+                2 days ago</p>
+            </div>
+          </div>
+  
+        
+    </main>
+
+    <!-- Main Body Ends -->
+
+</body>
+
+</html>

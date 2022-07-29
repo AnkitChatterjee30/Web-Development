@@ -1,0 +1,581 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,400;0,700;1,400&display=swap"
+        rel="stylesheet">
+    <title>Whatsapp Web</title>
+</head>
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        color: #303030;
+        font-family: 'Roboto', sans-serif;
+    }
+
+
+    .avatar {
+        position: relative;
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        overflow: hidden;
+    }
+
+    .avatar img,
+    .chat-avatar img {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+
+    .chat-header-right img {
+        width: 23px;
+        height: 23px;
+        margin: 5px 13px;
+        opacity: 0.5;
+
+    }
+
+    body {
+        display: flex;
+        scroll-behavior: smooth;
+        overflow: hidden;
+    }
+
+    .sidebar {
+        flex: 5.17;
+    }
+
+    .message-container {
+        flex: 12;
+        border-left: 0.5px solid lightgrey;
+    }
+
+    .header {
+        background-color: #ededed;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 10px 15px;
+        border-right: 1px solid rgb(0, 0, 0, 0.1);
+    }
+
+    .chat-title {
+        display: flex;
+        align-items: center;
+    }
+
+    .message-header-content {
+        margin-left: 15px;
+
+    }
+
+    .message-header-content p {
+        font-size: 13px;
+        color: grey;
+    }
+
+    h4 {
+        font-weight: 400;
+    }
+
+    .sidebar-search-container input {
+        border: none;
+        outline: none;
+        margin-left: 20px;
+        font-size: 16px;
+        font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    }
+
+    .sidebar-search-container img {
+        width: 15px;
+        height: 15px;
+        margin: 0 15px;
+        opacity: 0.4;
+    }
+
+    .sidebar-search {
+        display: flex;
+        align-items: center;
+        background-color: #f6f6f6;
+        padding: 8px 15px;
+    }
+
+    .sidebar-search-container {
+        display: flex;
+        align-items: center;
+        background-color: white;
+        width: 100%;
+        height: 35px;
+        border-radius: 20px;
+    }
+
+    .chat-avatar {
+        position: relative;
+        height: 50px;
+        min-width: 50px;
+        border-radius: 50%;
+        overflow: hidden;
+        flex: 1;
+    }
+
+    .sidebar-chats {
+        height: 85vh;
+        overflow-y: scroll;
+    }
+
+    .sidebar-chat {
+        position: relative;
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+        padding: 10px 12px;
+        width: 100%;
+    }
+
+    .chat-info {
+        margin-left: 15px;
+        flex: 10;
+    }
+
+    .chat-info p {
+        font-size: 13px;
+        line-height: 20px;
+        color: grey;
+    }
+
+    .time {
+        flex: 1;
+    }
+
+    .time p {
+        white-space: nowrap;
+        font-size: 13px;
+        margin-top: -16px;
+        color: grey;
+    }
+
+    .sidebar-chat::before {
+        content: ' ';
+        position: absolute;
+        width: 80%;
+        bottom: 0;
+        left: 80px;
+        border-bottom: 1px solid #999;
+        opacity: 0.2;
+    }
+
+    .sidebar-chat:hover {
+        background-color: #f5f5f5;
+    }
+
+    .sidebar-chat:nth-child(5) {
+        background-color: #ededed;
+    }
+
+
+    ::-webkit-scrollbar-track {
+        background:#555;
+    }
+
+    ::-webkit-scrollbar-thumb {
+        background: #B9B3AE;
+    }
+
+    ::-webkit-scrollbar-thumb:hover {
+        background: #555;
+    }
+
+    ::-webkit-scrollbar-thumb {
+        background: #B9B3AE;
+    }
+
+    ::-webkit-scrollbar-thumb:hover {
+        background: #555;
+    }
+    
+
+    .message-content {
+        background-image: url(https://user-images.githubusercontent.com/15075759/28719144-86dc0f70-73b1-11e7-911d-60d70fcded21.png);
+        background-position: center;
+        height: 67%;
+        padding: 20px 80px;
+        overflow-y: scroll;
+    }
+
+    .chat-message {
+        font-size: 14px;
+        padding: 8px 10px;
+        width: fit-content;
+        border-radius: 8px;
+        background-color: white;
+        margin-bottom: 18px;
+    }
+
+    .chat-timestamp {
+        color: grey;
+        font-size: 10px;
+        margin-left: 10px;
+    }
+
+    .chat-sent {
+        margin-left: auto;
+        background-color: #dcf8c6;
+    }
+
+    .message-footer img {
+        width: 22px;
+        height: 22px;
+        opacity: 0.4;
+    }
+
+    .message-footer {
+        display: flex;
+        align-items: center;
+        padding: 5px 10px;
+        background-color: #f0f0f0;
+        flex: 1;
+    }
+
+    .message-footer input {
+        flex: 20;
+        margin: 5px 10px;
+        padding: 12px 15px;
+        outline: none;
+        border: none;
+        border-radius: 20px;
+        font-size: 15px;
+    }
+
+    .tick {
+        color: blue;
+        font-weight: bold;
+    }
+
+    .tick2 {
+        color: blue;
+        margin-left: -5px;
+        font-weight: bold;
+    }
+
+    .menssagePendente {
+        background-color: #04fa67;
+        width: 21px;
+        height: 21px;
+        line-height: 9px;
+        font-size: 12px;
+        margin-top: -15px;
+        font-weight: bold;
+        border-radius: 50%;
+        text-align: center;
+        float: right;
+    }
+
+    .sidebar-chat .menssagePendente {
+        color:rgb(246, 247, 248);
+    }
+</style>
+
+<body>
+    <div class="sidebar">
+        <div class="header">
+            <div class="avatar">
+                <img src="My_Pic.jpeg" alt="">
+            </div>
+            <div class="chat-header-right">
+                <img src="https://raw.githubusercontent.com/SinthujanBalachandran/whatsapp-clone2/4441eea48b73f9ee0dc5eed856cba92a4ffb37c9/circle-notch-solid.svg"
+                    alt="">
+                <img src="https://www.pngall.com/wp-content/uploads/10/Message-Silhouette-Download-Free-PNG-180x180.png"
+                    alt="">
+                <img src="https://cdn0.iconfinder.com/data/icons/round-action-bar/48/more-512.png" alt="">
+            </div>
+        </div>
+        <div class="sidebar-search">
+            <div class="sidebar-search-container">
+                <img src="https://img.favpng.com/0/18/14/computer-icons-magnifying-glass-search-box-png-favpng-2tK3EPRNjc6ciW0cT0dRLm6CL.jpg"
+                    alt="">
+                <input type="text" placeholder="Search or start new chat">
+            </div>
+        </div>
+        <div class="sidebar-chats">
+            <div class="sidebar-chat">
+                <div class="chat-avatar">
+                    <img src="https://imageio.forbes.com/specials-images/imageserve/5c76b7d331358e35dd2773a9/0x0.jpg?format=jpg&crop=4401,4401,x0,y0,safe&height=416&width=416&fit=bounds"
+                        alt="">
+                </div>
+                <div class="chat-info">
+                    <h4>Mark Zuckerberg</h4>
+                    <p>Can you help me fix a glitch in fb ?</p>
+                    <p class="menssagePendente">3</p>
+                </div>
+                <div class="time">
+                    <p>2:44pm</p>
+                </div>
+            </div>
+            <div class="sidebar-chat">
+                <div class="chat-avatar">
+                    <img src="https://pbs.twimg.com/profile_images/1414439092373254147/JdS8yLGI_400x400.jpg" alt="">
+                </div>
+                <div class="chat-info">
+                    <h4>Bill Gates</h4>
+                    <p>Can you please lend me some money asap ?</p>
+                    <p class="menssagePendente">5</p>
+
+                </div>
+                <div class="time">
+                    <p>3:44pm</p>
+                </div>
+            </div>
+            <div class="sidebar-chat">
+                <div class="chat-avatar">
+                    <img src="https://cdn.britannica.com/65/227665-050-D74A477E/American-actor-Leonardo-DiCaprio-2016.jpg"
+                        alt="">
+                </div>
+                <div class="chat-info">
+                    <h4>Leonardo DiCaprio</h4>
+                    <p>Did you like my Django Unchained ?</p>
+                    <p class="menssagePendente">7</p>
+
+                </div>
+                <div class="time">
+                    <p>12:44pm</p>
+                </div>
+            </div>
+            <div class="sidebar-chat">
+                <div class="chat-avatar">
+                    <img src="https://yt3.ggpht.com/fsjUoWZmI4g9r1OpAjdma75OLPSsj4xFnwzvwZ4ccoj_KY2wKh7RfFejqGXPOrNeW8QqQs_Q=s900-c-k-c0x00ffffff-no-rj"
+                        alt="">
+                </div>
+                <div class="chat-info">
+                    <h4>Narendra Modi</h4>
+                    <p>Can I pass this bill tomorrow ?</p>
+                    <p class="menssagePendente">2</p>
+
+                </div>
+                <div class="time">
+                    <p>6:14pm</p>
+                </div>
+            </div>
+            <div class="sidebar-chat">
+                <div class="chat-avatar">
+                    <img src="https://qph.cf2.quoracdn.net/main-qimg-c78a51b97f6b989b908cc4c9a2a51af4-lq" alt="">
+                </div>
+                <div class="chat-info">
+                    <h4>Ayesha Mukherjee</h4>
+                    <p><span class="tick">&#10003;</span><span class="tick2">&#10003;</span>  That's Hilarious,friend...</p>
+                </div>
+                <div class="time">
+                    <p>2:47pm</p>
+                </div>
+            </div>
+            <div class="sidebar-chat">
+                <div class="chat-avatar">
+                    <img src="https://m.cricbuzz.com/a/img/v1/192x192/i1/c170661/virat-kohli.jpg" alt="">
+                </div>
+                <div class="chat-info">
+                    <h4>Virat Kohli</h4>
+                    <p><span class="tick">&#10003;</span><span class="tick2">&#10003;</span>     You will definitely score your 71st century. </p>
+                </div>
+                <div class="time">
+                    <p>3:54pm</p>
+                </div>
+            </div>
+            <div class="sidebar-chat">
+                <div class="chat-avatar">
+                    <img src="Rahul.jpeg" alt="">
+                </div>
+                <div class="chat-info">
+                    <h4>Rahul Mandal Bc Roy</h4>
+                    <p>Ki re bro ? Ki khobor ?</p>
+                    <p class="menssagePendente">1</p>
+
+                </div>
+                <div class="time">
+                    <p>2:44pm</p>
+                </div>
+            </div>
+            <div class="sidebar-chat">
+                <div class="chat-avatar">
+                    <img src="https://cloudfront-us-east-2.images.arcpublishing.com/reuters/IF4MPKPMMNKE3PJAKIIEMZHIDI.jpg"
+                        alt="">
+                </div>
+                <div class="chat-info">
+                    <h4>Joe Biden</h4>
+                    <p>I hate Trump </p>
+                    <p class="menssagePendente">1</p>
+
+                </div>
+                <div class="time">
+                    <p>1:00pm</p>
+                </div>
+            </div>
+            <div class="sidebar-chat">
+                <div class="chat-avatar">
+                    <img src="https://c.ndtvimg.com/2022-02/kr9u49fk_donald-trump-reuters_625x300_20_February_22.jpg?im=Resize=(1230,900)"
+                        alt="">
+                </div>
+                <div class="chat-info">
+                    <h4>Donald Trump</h4>
+                    <p>I hate Biden.</p>
+                    <p class="menssagePendente">6</p>
+
+                </div>
+                <div class="time">
+                    <p>5:34pm </p>
+                </div>
+            </div>
+            <div class="sidebar-chat">
+                <div class="chat-avatar">
+                    <img src="https://m.media-amazon.com/images/M/MV5BODI4NDY1NzkyM15BMl5BanBnXkFtZTgwNzM3MDM0OTE@._V1_.jpg"
+                        alt="">
+                </div>
+                <div class="chat-info">
+                    <h4>Akshay Kumar</h4>
+                    <p>When are you going to sign a film with me ?</p>
+                    <p class="menssagePendente">1</p>
+                </div>
+                <div class="time">
+                    <p>12:44pm</p>
+                </div>
+            </div>
+            <div class="sidebar-chat">
+                <div class="chat-avatar">
+                    <img src="https://i.tribune.com.pk/media/images/salman_khan__21654087337-0/salman_khan__21654087337-0.jpg"
+                        alt="">
+                </div>
+                <div class="chat-info">
+                    <h4>Salman Khan</h4>
+                    <p>I will drive your car safely...</p>
+                    <p class="menssagePendente">5</p>
+                </div>
+                <div class="time">
+                    <p>2:54pm</p>
+                </div>
+            </div>
+            <div class="sidebar-chat">
+                <div class="chat-avatar">
+                    <img src="https://i.pinimg.com/736x/2e/ff/a1/2effa1642c0ed92b2857e59d8e07468d.jpg"
+                        alt="">
+                </div>
+                <div class="chat-info">
+                    <h4>Kate Winslet</h4>
+                    <p>Why don't you make a sequal of Ttanic ?</p>
+                    <p class="menssagePendente">1</p>
+                </div>
+                <div class="time">
+                    <p>5:44pm</p>
+                </div>
+            </div>
+            <div class="sidebar-chat">
+                <div class="chat-avatar">
+                    <img src="https://www.indiewire.com/wp-content/uploads/2021/06/tarantino.png"
+                        alt="">
+                </div>
+                <div class="chat-info">
+                    <h4>Quentin Tarantino</h4>
+                    <p>Can you give me some tips about direction ?</p>
+                    <p class="menssagePendente">3</p>
+                </div>
+                <div class="time">
+                    <p>3:04am</p>
+                </div>
+            </div>
+            <div class="sidebar-chat">
+                <div class="chat-avatar">
+                    <img src="https://images.indulgexpress.com/uploads/user/imagelibrary/2020/1/22/original/Director_Headshot_2.jpeg"
+                        alt="">
+                </div>
+                <div class="chat-info">
+                    <h4>Srijit Mukherji</h4>
+                    <p>Hey! Do you have Quentin Tarantino's number ?</p>
+                    <p class="menssagePendente">1</p>
+                </div>
+                <div class="time">
+                    <p>2:44pm</p>
+                </div>
+            </div>
+            <div class="sidebar-chat">
+                <div class="chat-avatar">
+                    <img src="https://resize.indiatvnews.com/en/resize/newbucket/1200_-/2022/03/vijay-mallya-pti-1646806665.jpeg"
+                        alt="">
+                </div>
+                <div class="chat-info">
+                    <h4>Vijay Mallya</h4>
+                    <p>I am not going to return anyone's money...</p>
+                    <p class="menssagePendente">1</p>
+                </div>
+                <div class="time">
+                    <p>2:44pm</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="message-container">
+        <div class="header">
+            <div class="chat-title">
+                <div class="avatar">
+                    <img src="https://qph.cf2.quoracdn.net/main-qimg-c78a51b97f6b989b908cc4c9a2a51af4-lq" alt="">
+                </div>
+                <div class="message-header-content">
+                    <h4>Ayesha Mukherjee</h4>
+                    <p>online</p>
+                </div>
+            </div>
+            <div class="chat-header-right">
+                <img src="https://img.favpng.com/0/18/14/computer-icons-magnifying-glass-search-box-png-favpng-2tK3EPRNjc6ciW0cT0dRLm6CL.jpg"
+                    alt="">
+                <img src="https://cdn0.iconfinder.com/data/icons/round-action-bar/48/more-512.png" alt="">
+            </div>
+
+        </div>
+        <div class="message-content">
+            <p class="chat-message">Hello Ankit! <span class="chat-timestamp">11:33 pm</span></p>
+            <p class="chat-message chat-sent">Hello Ayesha ! <span class="tick">&#10003;</span><span
+                    class="tick2">&#10003;</span><span class="chat-timestamp">11:34 pm</span></p>
+            <p class="chat-message">What are you doing ?<span class="chat-timestamp">11:35 pm</span></p>
+            <p class="chat-message chat-sent">I'm making Whastapp clone using html,css <span
+                    class="tick">&#10003;</span><span class="tick2">&#10003;</span><span class="chat-timestamp">11:36
+                    pm</span></p>
+            <p class="chat-message">That's Amazing.<span class="chat-timestamp">11:37 pm</span></p>
+            <p class="chat-message chat-sent">And you ? <span class="tick">&#10003;</span><span
+                    class="tick2">&#10003;</span><span class="chat-timestamp">11:38 pm</span></p>
+            <p class="chat-message">I was studying Data Structures.<span class="chat-timestamp">11:39 pm</span></p>
+            <p class="chat-message chat-sent">Which Programming language ? <span class="tick">&#10003;</span><span
+                    class="tick2">&#10003;</span><span class="chat-timestamp">11:40 pm</span>
+            </p>
+            <p class="chat-message">C and C++<span class="chat-timestamp">11:41 pm</span></p>
+            <p class="chat-message chat-sent">That's awesome.<span class="tick">&#10003;</span><span
+                    class="tick2">&#10003;</span> <span class="chat-timestamp">11:42 pm</span></p>
+            <p class="chat-message">Yeah.<span class="chat-timestamp">11:43 pm</span></p>
+            <p class="chat-message chat-sent"> Did you watch Spiderman-Noway Home ? <span
+                    class="tick">&#10003;</span><span class="tick2">&#10003;</span><span class="chat-timestamp">11:44
+                    pm</span></p>
+            <p class="chat-message">No way...<span class="chat-timestamp">11:45 pm</span></p>
+            <p class="chat-message chat-sent">That's Hilarious,friend... <span class="tick">&#10003;</span><span
+                    class="tick2">&#10003;</span><span class="chat-timestamp">11:46 pm</span></p>
+            
+        </div>
+        <div class="message-footer">
+            <img src="https://www.seekpng.com/png/small/156-1565014_squinty-smiling-face-emoji-rubber-stamp-black-and.png"
+                alt="">
+            <img src="https://spng.subpng.com/20200216/xy/transparent-paper-clip-paper-icon-ios-7-icons5ea8e4889483d2.4426867715881268566083.jpg"
+                alt="">
+            <input type="text" placeholder="Type a Message...">
+            <img src="https://www.pngitem.com/pimgs/m/68-681419_top-of-microphone-mic-icon-png-transparent-png.png"
+                alt="">
+        </div>
+    </div>
+</body>
+
+</html>

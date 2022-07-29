@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    body {
+        background-image: linear-gradient(to right, violet, indigo, blue, green, yellow, orange, red);
+    }
+
+    .head {
+        width: 150px;
+        height: 150px;
+        border-radius: 50%;
+        border: 1px solid black;
+        background-color:rgb(228, 225, 225);
+        margin-top: 150px;
+        margin-left: 620px;
+        position: absolute;
+    }
+
+    .thorax {
+        width: 300px;
+        height: 300px;
+        border-radius: 50%;
+        background-color: rgb(234, 232, 232);
+        margin-top: 270px;
+        border: 1px solid black;
+        margin-left: 545px;
+        position: absolute;
+    }
+
+    .handle {
+        width: 200px;
+        height: 10px;
+        background-color: black;
+        margin-top: 150px;
+        margin-left: 600px;
+        position: absolute;
+    }
+
+    .band {
+        width: 100px;
+        height: 10px;
+        background-color: red;
+        margin-top: 140px;
+        margin-left: 645px;
+        position: absolute;
+    }
+
+    .hat {
+        width: 100px;
+        height: 100px;
+        background-color: black;
+        margin-top: 40px;
+        margin-left: 645px;
+        position: absolute;
+    }
+
+    .lefteye {
+        width: 20px;
+        height: 20px;
+        border-radius: 50%;
+        background-color: darkblue;
+        margin-top: 190px;
+        margin-left: 650px;
+        position: absolute;
+    }
+
+    .righteye {
+        width: 20px;
+        height: 20px;
+        border-radius: 50%;
+        background-color: darkblue;
+        margin-top: 190px;
+        margin-left: 715px;
+        position: absolute;
+    }
+
+    .mouth {
+        position: absolute;
+        margin-left: 665px;
+        margin-top: 240px;
+        width: 55px;
+        background-color: rgb(247, 16, 58);
+        height: 24px;
+        border-radius: 7px 7px 100px 100px;
+        border: 1px solid darkred;
+        }
+
+    .button1 {
+        position: absolute;
+        margin-top: 350px;
+        margin-left: 680px;
+        width: 10px;
+        height: 10px;
+        background-color: black;
+        border-radius: 50%;
+    }
+
+    .button2 {
+        position: absolute;
+        margin-top: 400px;
+        margin-left: 680px;
+        width: 10px;
+        height: 10px;
+        background-color: black;
+        border-radius: 50%;
+    }
+
+    .button3 {
+        position: absolute;
+        margin-top: 450px;
+        margin-left: 680px;
+        width: 10px;
+        height: 10px;
+        background-color: black;
+        border-radius: 50%;
+    }
+
+    .button4 {
+        position: absolute;
+        margin-top: 500px;
+        margin-left: 680px;
+        width: 10px;
+        height: 10px;
+        background-color: black;
+        border-radius: 50%;
+    }
+    .lefthand{
+        position: absolute;
+        margin-top: 290px;
+        margin-left: 435px;
+        transform: rotate(30deg);
+        width: 150px;
+        height: 10px;
+        background-color: black;   
+    }
+    .righthand{
+        position: absolute;
+        margin-top: 290px;
+        margin-left: 800px;
+        transform: rotate(150deg);
+        width: 150px;
+        height: 10px;
+        background-color: black; 
+    }
+    .leftfinger{
+        position: absolute;
+        margin-top: 245px;
+        margin-left: 445px;
+        transform: rotate(75deg);
+        width: 50px;
+        height: 10px;
+        background-color: black; 
+    }
+    .rightfinger{
+        position: absolute;
+        margin-top: 250px;
+        margin-left: 890px;
+        transform: rotate(120deg);
+        width: 50px;
+        height: 10px;
+        background-color: black; 
+    }
+    .abdomen{
+        position: absolute;
+        margin-top: 420px;
+        margin-left: 465px;
+        width: 450px;
+        height: 450px;
+        border-radius: 50%;
+        background-color:rgb(234, 232, 232) ; 
+    }
+    .lefteyeball{
+        width: 5px;
+        height: 5px;
+        border-radius: 50%;
+        background-color: azure;
+        margin-top: 197px;
+        margin-left: 657px;
+        position: absolute; 
+    }
+    .righteyeball{
+        width: 5px;
+        height: 5px;
+        border-radius: 50%;
+        background-color: azure;
+        margin-top: 197px;
+        margin-left: 722px;
+        position: absolute; 
+    }
+    .nose{
+        margin-top: 200px;
+        margin-left: 700px;
+        position: absolute; 
+        width: 0;
+        height: 0;
+        border-left: 10px solid transparent;
+        border-right: 10px solid transparent;
+        border-bottom: 50px solid orangered;
+        transform: rotate(95deg);
+        
+    }
+</style>
+
+<body>
+    <div class="thorax"></div>
+    <div class="head"></div>
+    <div class="handle"></div>
+    <div class="band"></div>
+    <div class="hat"></div>
+    <div class="lefteye"></div>
+    <div class="righteye"></div>
+    <div class="mouth"></div>
+    <div class="lefthand"></div>
+    <div class="righthand"></div>
+    <div class="leftfinger"></div>
+    <div class="rightfinger"></div>
+    <div class="abdomen"></div>
+    <div class="button1"></div>
+    <div class="button2"></div>
+    <div class="button3"></div>
+    <div class="button4"></div>
+    <div class="lefteyeball"></div>
+    <div class="righteyeball"></div>
+    <div class="nose"></div>
+</body>
+
+</html>
